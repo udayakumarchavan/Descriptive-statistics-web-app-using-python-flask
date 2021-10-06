@@ -1,0 +1,38 @@
+{% extends 'base_file.html' %}
+
+{% block content %}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <h2>Measures of Variability</h2>
+
+            <div class='row'>
+                <div class='col-sm-6'>
+                    <div class="card">
+                        <div class="card-box">
+                            <h3>CSV File upload</h3>
+                            <button type="button" class="btn btn-link waves-effect">
+                                <a href="{{url_for('static', filename='assets/csv/descriptive.csv')}}">Sample File</a>
+                            </button><br><br>
+                            <form action="/measures_upload/" method="POST" enctype="multipart/form-data">
+                            <div class="form-group mb-12">
+                                <input name='data_file' type="file" id="example-fileinput" class="form-control-file" required>
+                            </div><br>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                            </div>   
+
+                            </form>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

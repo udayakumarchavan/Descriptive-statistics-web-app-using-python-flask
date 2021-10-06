@@ -1,0 +1,119 @@
+{% extends 'base_file.html' %}
+
+{% block content %}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <h2>Measures of Variability</h2>
+
+            <div class="card-box">
+                <h3>Model Summary</h3>
+                <h5>Observations: {{rows}}</h5><br>
+                <div class="row">
+                    <div class="table-responsive col-sm-6" style="padding: 11px;">
+                        
+                        <h3 class="header-title">Model Summary</h3>
+                        <table class="table table-bordered mb-0">
+                            <thead class="table-success">
+                            <tr>
+                                <th></th>
+                                <th>Variable1</th>
+                                <th>Variable2</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Range</td>
+                                <td>{{xran}}</td>
+                                <td>{{xran1}}</td>
+                            </tr>
+                            <tr>
+                                <td>Minimum</td>
+                                <td>{{xmin}}</td>
+                                <td>{{xmin1}}</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum</td>
+                                <td>{{xmax}}</td>
+                                <td>{{xmax1}}</td>
+                            </tr>
+                            <tr>
+                                <td>InterQuartile Range</td>
+                                <td>{{xiqr}}</td>
+                                <td>{{xiqr1}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive col-sm-6" style="padding: 11px;">
+                        
+                        <br>
+                        <table class="table table-bordered mb-0">
+                            <thead class="table-success">
+                            <tr>
+                                <th><b>Percentiles</b></th>
+                                <th>Variable1</th>
+                                <th>Variable2</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>25</td>
+                                <td>{{xp1}}</td>
+                                <td>{{x1p1}}</td>
+                            </tr>
+                            <tr>
+                                <td>50</td>
+                                <td>{{xp2}}</td>
+                                <td>{{x1p2}}</td>
+                            </tr>
+                            <tr>
+                                <td>75</td>
+                                <td>{{xp3}}</td>
+                                <td>{{x1p3}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-box">
+                <h4 class="header-title">Data table</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                        <thead class="table-success">
+                        <tr>
+                            <th>#</th>
+                            <th>Variable1</th>
+                            <th>Variable2</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in range(rows) %}
+
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{data['x'][i]}}</td>
+                            <td>{{data['x1'][i]}}</td>
+                        </tr>
+                        
+                        {% endfor %}
+                        <tr>
+                            <th><b><u>Sum:</u></b></th>
+                            <th>{{xs}}</th>
+                            <th>{{xs1}}</th>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div> 
+            </div>     
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
